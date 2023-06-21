@@ -12,16 +12,18 @@ function getComputerChoise() {
     }
 }
 
-
+// Should investigate how to nest conditions in an if statement, so that for example all tie cases could be covered within the first if statement
 function playRound(playerSelection, computerSelection) {
-    // All tie cases
-    if (
-        (computerSelection = "Rock" && playerSelection = "Rock") || (computerSelection = "Paper" && playerSelection = "Paper") || (computerSelection = "Scissors" && playerSelection = "Siccors")
-    ) {
+    // Rock tie cases
+    if (computerSelection == "Rock" && playerSelection == "Rock") {
         console.log("Tie!");
     }
-    // All player win cases
-    else if (
-        computerSelection = "Rock"
-    )
+    // Paper Tie Case
+    else if (computerSelection == "Paper" && playerSelection == "Paper") {
+
+    }
+    // Scissors Tie Case
+    else if (computerSelection == "Scissors" && playerSelection == "Scissors") {
+
+    }
 }
