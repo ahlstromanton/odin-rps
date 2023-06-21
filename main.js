@@ -12,18 +12,43 @@ function getComputerChoise() {
     }
 }
 
-// Should investigate how to nest conditions in an if statement, so that for example all tie cases could be covered within the first if statement
-function playRound(playerSelection, computerSelection) {
-    // Rock tie cases
-    if (computerSelection == "Rock" && playerSelection == "Rock") {
-        console.log("Tie!");
-    }
-    // Paper Tie Case
-    else if (computerSelection == "Paper" && playerSelection == "Paper") {
 
+// A probably neater way to handle the above
+function playRoundAlt(playerSelection, computerSelection) {
+    // Handle all cases where computer selects "Rock"
+    if (computerSelection == "Rock") {
+        if (playerSelection == "Rock") {
+            console.log("Tie!");
+        }
+        else if (playerSelection = "Scissors") {
+            console.log("You lost!");
+        }
+        else {
+            console.log("You won!");
+        }
     }
-    // Scissors Tie Case
-    else if (computerSelection == "Scissors" && playerSelection == "Scissors") {
-
+    // Handle all cases where compute selects "Paper"
+    else if (computerSelection == "Paper") {
+        if (playerSelection == "Paper") {
+            console.log("Tie!");
+        }
+        else if (playerSelection == "Rock") {
+            console.log("You lost!");
+        }
+        else {
+            console.log("You won!");
+        }
+    }
+    // Handle all cases where computer selects "Scissors" (doesn't need to be explicitly typed out)
+    else {
+        if (playerSelection == "Scissors") {
+            console.log("Tie!");
+        }
+        else if (playerSelection == "Paper") {
+            console.log("You won!");
+        }
+        else {
+            console.log("You lost!");
+        }
     }
 }
