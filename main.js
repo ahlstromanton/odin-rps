@@ -20,10 +20,14 @@ function getComputerChoise() {
 
 function playRound() {
     computerSelection = getComputerChoise();
-    userinput = prompt("Choose Rock, Paper or Scissors!");
+    let userinput = prompt("Choose Rock, Paper or Scissors!");
     let playerSelection = userinput.toLowerCase();
-    // Lowercase players input. Not sure if this works, if bugs, start here
 
+    // Trying to handle cases where input is wrong, but not working...
+    // if (playerSelection !== ("scissors") || ("rock") || ("paper")) {
+    //    console.log("Please choose rock, paper or scissors.");
+    // }
+    // else {
 
     // Handle all cases where computer selects "Rock"
     if (computerSelection == "rock") {
@@ -50,29 +54,34 @@ function playRound() {
         }
     }
     // Handle all cases where computer selects "Scissors"
-    else if (computerSelection == "scissors") {
+    else {
         if (playerSelection == "scissors") {
             return ("Tie!");
         }
         else if (playerSelection == "paper") {
             return ("You won!");
         }
+        // Kommer denna skjuta detta även när inputen är felstavad etc?
         else {
             return ("You lost!");
         }
     }
-    // Handle misspellings, etc.
-    else {
-        return ("Please choose Rock, Paper or Scissors");
-    }
-    console.log(playerSelection, computerSelection);
+    return computerSelection;
+    return playerSelection;
 }
+
+
 
 function game() {
     let numberOfRoundsPlayed = 0;
     while (numberOfRoundsPlayed < 5) {
         playRound();
-        console.log(playRound() + " Computer choose " + computerSelection);
+        console.log("You choose " + playerSelection);
+        console.log("Computer choose " + computerSelection);
+        console.log(playRound());
         numberOfRoundsPlayed++;
     }
 }
+
+let computerSelection = "";
+let playerSelection = "";
