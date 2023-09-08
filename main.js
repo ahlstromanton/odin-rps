@@ -34,12 +34,17 @@ function playRound(playerSelection, computerSelection) {
 // TODO: Maybe handle tie better (dont count it to rounds?))
 // TODO: Handle wrong input
 function game() {
-    let rounds = 5;
-    for (let i = 0; i < rounds; i++) {
+    let rounds = 0;
+    while (rounds < 5) {
         const playerSelection = prompt("Choose Rock, Paper or Scissors!").toLowerCase();
-        const computerSelection = getComputerChoise();
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
+        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+            const computerSelection = getComputerChoise();
+            let result = playRound(playerSelection, computerSelection);
+            console.log(result);
+            rounds++;
+        } else {
+            console.log("Wrong input, try again,")
+        }
     }
     console.log("Final score was: " + "You: " + playerScore + " vs " + "Computer: " + computerScore);
     return "Call the function game() again to play again :)"
