@@ -16,7 +16,6 @@ function getComputerChoise() {
     return computerSelection.toLowerCase();
 }
 
-
 function playRound(playerSelection, computerSelection) {
     if (computerSelection == playerSelection) {
         return computerScore++, playerScore++;
@@ -29,6 +28,23 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return playerScore++;
     }
+}
+
+function game() {
+    const computerSelection = getComputerChoise();
+    playRound(playerSelection, computerSelection);
+    showScores();
+}
+
+function showScores() {
+    const userScoreFrontend = document.querySelector('#userScoreFrontend');
+    userScoreFrontend.textContent = playerScore;
+    const computerScoreFrontend = document.querySelector('#computerScoreFrontend');
+    computerScoreFrontend.textContent = computerScore;
+}
+
+function showOutcome() {
+    
 }
 
 const rockBtn = document.querySelector('.buttons #rock');
@@ -47,18 +63,6 @@ const scissorsBtn = document.querySelector('.buttons #scissors');
 scissorsBtn.onclick = () => {
     playerSelection = "scissors";
     game(playerSelection);
-}
-
-function game() {
-    const computerSelection = getComputerChoise();
-    playRound(playerSelection, computerSelection);
-    console.log("Player picks: " + playerSelection);
-    console.log("Computer picks: " + computerSelection);
-    // console.log("Current score: " + playerScore + " vs " + computerScore);
-    const userScoreFrontend = document.querySelector('#userScoreFrontend');
-    userScoreFrontend.textContent = playerScore;
-    const computerScoreFrontend = document.querySelector('#computerScoreFrontend');
-    computerScoreFrontend.textContent = computerScore;
 }
 
 
