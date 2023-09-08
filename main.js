@@ -31,19 +31,28 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// TODO: Maybe handle tie better (dont count it to rounds?))
-function game() {
-    let rounds = 0;
-    while (rounds < 5) {
-        const playerSelection = prompt("Choose Rock, Paper or Scissors!").toLowerCase();
-        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-            const computerSelection = getComputerChoise();
-            let result = playRound(playerSelection, computerSelection);
-            rounds++;
-        } else {
-            console.log("Wrong input, try again,")
-        }
-    }
-    console.log("Final score was: " + "You: " + playerScore + " vs " + "Computer: " + computerScore);
-    return "Call the function game() again to play again :)"
+const rockbtn = document.querySelector('.buttons, #rock');
+rockbtn.onclick = () => {
+    playerSelection = "rock";
+    game();
 }
+
+const paperbtn = document.querySelector('.buttons, #paper');
+paperbtn.onclick = () => {
+    playerSelection = "paper";
+    game();
+}
+
+const scissorsbtn = document.querySelector('.buttons, #scissors');
+scissorsbtn.onclick = () => {
+    playerSelection = "scissors";
+    game();
+}
+
+function game() {
+    const computerSelection = getComputerChoise();
+    let result = playRound(playerSelection, computerSelection);
+    console.log(result);
+}
+
+
