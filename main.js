@@ -31,20 +31,20 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const rockbtn = document.querySelector('.buttons #rock');
-rockbtn.onclick = () => {
+const rockBtn = document.querySelector('.buttons #rock');
+rockBtn.onclick = () => {
     playerSelection = "rock";
-    game(playerSelection);;
+    game(playerSelection);
 }
 
-const paperbtn = document.querySelector('.buttons #paper');
-paperbtn.onclick = () => {
+const paperBtn = document.querySelector('.buttons #paper');
+paperBtn.onclick = () => {
     playerSelection = "paper";
     game(playerSelection);
 }
 
-const scissorsbtn = document.querySelector('.buttons #scissors');
-scissorsbtn.onclick = () => {
+const scissorsBtn = document.querySelector('.buttons #scissors');
+scissorsBtn.onclick = () => {
     playerSelection = "scissors";
     game(playerSelection);
 }
@@ -54,7 +54,11 @@ function game() {
     playRound(playerSelection, computerSelection);
     console.log("Player picks: " + playerSelection);
     console.log("Computer picks: " + computerSelection);
-    console.log("Current score: " + playerScore + " vs " + computerScore);
+    // console.log("Current score: " + playerScore + " vs " + computerScore);
+    const userScoreFrontend = document.querySelector('#userScoreFrontend');
+    userScoreFrontend.textContent = playerScore;
+    const computerScoreFrontend = document.querySelector('#computerScoreFrontend');
+    computerScoreFrontend.textContent = computerScore;
 }
 
 
