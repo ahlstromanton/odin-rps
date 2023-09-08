@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoise() {
     let randomNumber = Math.floor(Math.random() * 3);
     let computerSelection;
@@ -22,12 +25,14 @@ function playRound(playerSelection, computerSelection) {
         (computerSelection == "scissors" && playerSelection == "paper") ||
         (computerSelection == "paper" && playerSelection == "rock")
     ) {
-        return "You lose :(";
+        return computerScore++;
     } else {
-        return "You win! :)";
+        return playerScore++;
     }
 }
 
+// TODO: Maybe handle tie better (dont count it to rounds?))
+// TODO: Handle wrong input
 function game() {
     let rounds = 5;
     for (let i = 0; i < rounds; i++) {
@@ -36,6 +41,7 @@ function game() {
         let result = playRound(playerSelection, computerSelection);
         console.log(result);
     }
+    console.log("Final score was: " + "You: " + playerScore + " vs " + "Computer: " + computerScore);
     return "Call the function game() again to play again :)"
 }
 
