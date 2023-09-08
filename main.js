@@ -31,28 +31,30 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const rockbtn = document.querySelector('.buttons, #rock');
+const rockbtn = document.querySelector('.buttons #rock');
 rockbtn.onclick = () => {
     playerSelection = "rock";
-    game();
+    game(playerSelection);;
 }
 
-const paperbtn = document.querySelector('.buttons, #paper');
+const paperbtn = document.querySelector('.buttons #paper');
 paperbtn.onclick = () => {
     playerSelection = "paper";
-    game();
+    game(playerSelection);
 }
 
-const scissorsbtn = document.querySelector('.buttons, #scissors');
+const scissorsbtn = document.querySelector('.buttons #scissors');
 scissorsbtn.onclick = () => {
     playerSelection = "scissors";
-    game();
+    game(playerSelection);
 }
 
 function game() {
     const computerSelection = getComputerChoise();
-    let result = playRound(playerSelection, computerSelection);
-    console.log(result);
+    playRound(playerSelection, computerSelection);
+    console.log("Player picks: " + playerSelection);
+    console.log("Computer picks: " + computerSelection);
+    console.log("Current score: " + playerScore + " vs " + computerScore);
 }
 
 
