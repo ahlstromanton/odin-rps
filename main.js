@@ -19,7 +19,7 @@ function getComputerChoise() {
 
 function playRound(playerSelection, computerSelection) {
     if (computerSelection == playerSelection) {
-        return "Tie!";
+        return computerScore++, playerScore++;
     } else if (
         (computerSelection == "rock" && playerSelection == "scissors") ||
         (computerSelection == "scissors" && playerSelection == "paper") ||
@@ -32,7 +32,6 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // TODO: Maybe handle tie better (dont count it to rounds?))
-// TODO: Handle wrong input
 function game() {
     let rounds = 0;
     while (rounds < 5) {
@@ -40,7 +39,6 @@ function game() {
         if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
             const computerSelection = getComputerChoise();
             let result = playRound(playerSelection, computerSelection);
-            console.log(result);
             rounds++;
         } else {
             console.log("Wrong input, try again,")
@@ -49,7 +47,3 @@ function game() {
     console.log("Final score was: " + "You: " + playerScore + " vs " + "Computer: " + computerScore);
     return "Call the function game() again to play again :)"
 }
-
-// const playerSelection = "rock"; //Change this to user input later
-// const computerSelection = getComputerChoise();
-// console.log(playRound(playerSelection, computerSelection));
