@@ -44,8 +44,15 @@ function showScores() {
 }
 
 function showOutcome() {
-    
+
 }
+
+
+/* function resetScore(playerScore, computerScore) {
+    playerScore = 0;
+    computerScore = 0;
+    return playerScore, computerScore;
+} */
 
 const rockBtn = document.querySelector('.buttons #rock');
 rockBtn.onclick = () => {
@@ -65,4 +72,10 @@ scissorsBtn.onclick = () => {
     game(playerSelection);
 }
 
+const resetBtn = document.querySelector('#reset');
+resetBtn.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    showScores(playerScore, computerScore);
+})
 
