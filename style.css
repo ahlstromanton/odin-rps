@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+}
+
+.controls {
+    margin: 10px;
+    padding: 10px;
+    border: 1px black solid;
+}
+
+.results {
+    margin: 0px;
+    padding: 0px;
+}
+
+.buttons {
+    margin: 20px;
+}

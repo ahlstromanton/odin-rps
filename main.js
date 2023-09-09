@@ -16,7 +16,6 @@ function getComputerChoise() {
     return computerSelection.toLowerCase();
 }
 
-
 function playRound(playerSelection, computerSelection) {
     if (computerSelection == playerSelection) {
         return computerScore++, playerScore++;
@@ -31,19 +30,51 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// TODO: Maybe handle tie better (dont count it to rounds?))
 function game() {
-    let rounds = 0;
-    while (rounds < 5) {
-        const playerSelection = prompt("Choose Rock, Paper or Scissors!").toLowerCase();
-        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-            const computerSelection = getComputerChoise();
-            let result = playRound(playerSelection, computerSelection);
-            rounds++;
-        } else {
-            console.log("Wrong input, try again,")
-        }
-    }
-    console.log("Final score was: " + "You: " + playerScore + " vs " + "Computer: " + computerScore);
-    return "Call the function game() again to play again :)"
+    const computerSelection = getComputerChoise();
+    playRound(playerSelection, computerSelection);
+    showScores();
+    showOutcome(playerSelection, computerSelection);
 }
+
+function showScores() {
+    const userScoreFrontend = document.querySelector('#userScoreFrontend');
+    userScoreFrontend.textContent = playerScore;
+    const computerScoreFrontend = document.querySelector('#computerScoreFrontend');
+    computerScoreFrontend.textContent = computerScore;
+}
+
+function showOutcome(playerSelection, computerSelection) {
+    const playerChoise = document.querySelector('#playerChoise')
+    playerChoise.textContent = playerSelection;
+    const computerChoise = document.querySelector('#computerChoise')
+    computerChoise.textContent = computerSelection;
+}
+
+
+const rockBtn = document.querySelector('.buttons #rock');
+rockBtn.onclick = () => {
+    playerSelection = "rock";
+    game(playerSelection);
+}
+
+const paperBtn = document.querySelector('.buttons #paper');
+paperBtn.onclick = () => {
+    playerSelection = "paper";
+    game(playerSelection);
+}
+
+const scissorsBtn = document.querySelector('.buttons #scissors');
+scissorsBtn.onclick = () => {
+    playerSelection = "scissors";
+    game(playerSelection);
+}
+
+const resetBtn = document.querySelector('#reset');
+resetBtn.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    showScores(playerScore, computerScore);
+    showOutcome();
+})
+
