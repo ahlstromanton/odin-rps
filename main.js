@@ -34,6 +34,7 @@ function game() {
     const computerSelection = getComputerChoise();
     playRound(playerSelection, computerSelection);
     showScores();
+    showOutcome(playerSelection, computerSelection);
 }
 
 function showScores() {
@@ -43,16 +44,13 @@ function showScores() {
     computerScoreFrontend.textContent = computerScore;
 }
 
-function showOutcome() {
-
+function showOutcome(playerSelection, computerSelection) {
+    const playerChoise = document.querySelector('#playerChoise')
+    playerChoise.textContent = playerSelection;
+    const computerChoise = document.querySelector('#computerChoise')
+    computerChoise.textContent = computerSelection;
 }
 
-
-/* function resetScore(playerScore, computerScore) {
-    playerScore = 0;
-    computerScore = 0;
-    return playerScore, computerScore;
-} */
 
 const rockBtn = document.querySelector('.buttons #rock');
 rockBtn.onclick = () => {
@@ -77,5 +75,6 @@ resetBtn.addEventListener('click', () => {
     playerScore = 0;
     computerScore = 0;
     showScores(playerScore, computerScore);
+    showOutcome();
 })
 
